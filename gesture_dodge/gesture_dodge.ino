@@ -41,7 +41,7 @@ void loop() {
     float distance = duration * 0.0343 / 2.0;
 
     // Ölçüm aralığı dışındaysa şeridi değiştirme
-    if (distance < 5 || distance > 35) {
+    if (distance < 2 || distance > 50) {
         Serial.println("Gecersiz mesafe");
         delay(100);
         return;
@@ -72,21 +72,10 @@ void loop() {
             aktifSerit = ORTA;
         }
     }
-
+    
     // 4. Sonucu yazdır
-    Serial.print("Mesafe: ");
-    Serial.print(distance);
-    Serial.print(" cm | Serit: ");
-
-    if (aktifSerit == UST) {
-        Serial.println("UST");
-    }
-    else if (aktifSerit == ORTA) {
-        Serial.println("ORTA");
-    }
-    else {
-        Serial.println("ALT");
-    }
+    Serial.print("L:");
+    Serial.println(aktifSerit);
 
     delay(100);
 }
